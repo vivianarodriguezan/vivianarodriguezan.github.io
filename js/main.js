@@ -12,7 +12,7 @@
 
     function openLightbox() {
       if (!photo) return;
-      lightboxImg.src = photo.currentSrc || photo.src;
+      lightboxImg.src = photo.getAttribute('data-full') || photo.currentSrc || photo.src;
       lightbox.hidden = false;
     }
     function closeLightbox() {

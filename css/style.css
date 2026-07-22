@@ -1,0 +1,256 @@
+/* =========================================================================
+   Viviana Rodriguez — personal site
+   Design tokens consolidated from the design handoff (.dc.html files).
+   ========================================================================= */
+
+:root {
+  /* Palette */
+  --bg:          #ffffff;
+  --ink:         #18181b; /* darkest — headings, strong rules */
+  --body:        #27272a; /* body copy */
+  --muted:       #52525b;
+  --muted-2:     #71717a;
+  --link:        #006896; /* default link (teal-blue) */
+  --accent:      #940034; /* active nav / maroon */
+  --divider:     #e4e4e7; /* light list dividers */
+  --btn-border:  #d4d4d8;
+  --btn-ink:     #3f3f46;
+
+  /* Type */
+  --serif: 'Libertinus Serif', Georgia, serif;
+  --mono:  'IBM Plex Mono', monospace;
+}
+
+/* ------------------------------------------------------------------ reset */
+html, body { margin: 0; background: var(--bg); }
+* { box-sizing: border-box; }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ------------------------------------------------------------------ layout */
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 64px 24px 96px;
+}
+.page--home { padding-top: 72px; }
+
+main { width: 100%; }
+.wrap-narrow { max-width: 600px; }  /* home */
+.wrap-wide   { max-width: 720px; }  /* research / teaching */
+
+/* ------------------------------------------------------------------ avatar */
+.avatar {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  margin: 0 auto 30px;
+}
+.avatar img {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+.avatar__expand {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--btn-border);
+  background: var(--bg);
+  color: var(--btn-ink);
+  font-family: var(--mono);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(15, 15, 20, 0.18);
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------- masthead */
+.name {
+  margin: 0;
+  text-align: center;
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--ink);
+}
+.name--home { font-size: 40px; letter-spacing: -0.01em; }
+.name--sub  { font-size: 27px; letter-spacing: -0.005em; }
+.name--sub a { color: var(--ink); }
+
+.tagline {
+  margin: 12px 0 0;
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------------- nav */
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 13px 0;
+  border-top: 0.8px solid var(--ink);
+  border-bottom: 0.4px solid var(--muted-2);
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+}
+.nav--home { margin: 30px 0; }
+.nav--sub  { margin: 22px 0 44px; }
+.nav a { color: var(--ink); }
+.nav a[aria-current="page"] { color: var(--accent); }
+
+/* ------------------------------------------------------------------- intro */
+.intro {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.62;
+  color: var(--body);
+  text-align: justify;
+}
+.intro p { margin: 0 0 0.75em; }
+.intro p.indent { text-indent: 0.5cm; }
+.intro p:last-child { margin-bottom: 0; }
+
+/* ------------------------------------------------------------------ contact */
+.contact {
+  margin: 56px 0 0;
+  text-align: center;
+}
+.contact__rule {
+  width: 44px;
+  height: 0.8px;
+  background: var(--ink);
+  margin: 0 auto 20px;
+}
+.contact__email {
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--link);
+}
+.contact address {
+  margin: 14px 0 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------- section headers */
+.section-title {
+  margin: 0 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 0.8px solid var(--ink);
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 21px;
+  color: var(--ink);
+}
+.section-title + .section-title,
+.section-title.gap { margin-top: 52px; }
+
+/* ---------------------------------------------------------------- research */
+.pub {
+  margin: 0 0 26px;
+  font-family: var(--serif);
+  font-size: 17.5px;
+  line-height: 1.5;
+  color: var(--body);
+}
+.pub:last-child { margin-bottom: 0; }
+.pub a.title { font-weight: 600; }
+.pub em { color: var(--muted); }
+.pub strong { font-weight: 600; }
+.pub .venue { color: var(--muted); font-style: italic; }
+.pub .lead { font-weight: 600; color: var(--ink); }
+
+.featured {
+  margin-top: 7px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted-2);
+}
+.featured .label {
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.featured .outlets {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-style: italic;
+}
+
+/* ---------------------------------------------------------------- teaching */
+.teach-block { margin: 0 0 30px; }
+.teach-block:last-of-type { margin-bottom: 0; }
+.teach-org {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  margin-bottom: 10px;
+}
+.teach-org a { color: var(--muted-2); }
+
+.course-list,
+.guest-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--serif);
+  font-size: 17.5px;
+  line-height: 1.5;
+  color: var(--body);
+}
+.course-list li { padding: 6px 0; border-bottom: 0.4px solid var(--divider); }
+.course-list li:last-child { border-bottom: 0; }
+
+.guest-list { line-height: 1.55; }
+.guest-list li { padding: 9px 0; border-bottom: 0.4px solid var(--divider); }
+.guest-list li:last-child { border-bottom: 0; }
+.guest-list strong { font-weight: 600; }
+.guest-list .year { color: var(--muted-2); font-style: italic; }
+
+/* ------------------------------------------------------------------ lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 9, 11, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: zoom-out;
+  padding: 48px;
+}
+.lightbox[hidden] { display: none; }
+.lightbox img {
+  width: 88vw;
+  height: 88vh;
+  object-fit: contain;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.55);
+}
+
+/* ------------------------------------------------------------------ mobile */
+@media (max-width: 640px) {
+  .page { padding: 48px 20px 72px; }
+  .name--home { font-size: 34px; }
+  .intro { text-align: left; }
+}
